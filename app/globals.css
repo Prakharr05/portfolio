@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0e0e0c;
+  --ink-deep: #080806;
+  --ink-panel: #161613;
+  --ink-line: #28281f;
+  --bone: #e8e4d8;
+  --bone-dim: #9b9789;
+  --bone-mute: #67645a;
+  --sage: #7a8471;
+  --rust: #d4663a;
+  --rust-deep: #a04d28;
+  --rust-glow: #e88556;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--ink);
+  color: var(--bone);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  cursor: none; /* custom cursor */
+}
+
+@media (max-width: 768px) {
+  html, body { cursor: auto; }
+}
+
+::selection {
+  background: var(--rust);
+  color: var(--ink-deep);
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--ink-deep); }
+::-webkit-scrollbar-thumb { background: var(--ink-line); }
+::-webkit-scrollbar-thumb:hover { background: var(--bone-mute); }
+
+/* === ATMOSPHERE: noise grain texture === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.91 0 0 0 0 0.89 0 0 0 0 0.84 0 0 0 0.7 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* === ATMOSPHERE: warm radial glow === */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% -10%, rgba(212, 102, 58, 0.08), transparent 60%),
+    radial-gradient(ellipse 50% 30% at 10% 50%, rgba(122, 132, 113, 0.04), transparent 60%);
+}
+
+/* === Custom cursor === */
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--rust);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: width 0.2s ease, height 0.2s ease;
+}
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--bone-dim);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+/* Display serif tweaks */
+.font-display {
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  letter-spacing: -0.02em;
+}
+
+/* Italic Fraunces for accents */
+.serif-italic {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-variation-settings: "opsz" 14, "SOFT" 100;
+}
+
+/* Hairline rule */
+.rule {
+  height: 1px;
+  background: var(--ink-line);
+  border: none;
+}
+.rule-rust {
+  background: linear-gradient(to right, var(--rust), transparent);
+  height: 1px;
+}
+
+/* Section indices — large outlined numbers */
+.index-num {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144;
+  font-weight: 300;
+  font-style: italic;
+  -webkit-text-stroke: 1px var(--bone-mute);
+  color: transparent;
+  letter-spacing: -0.04em;
+}
+
+/* Link style — subtle, refined */
+.link {
+  position: relative;
+  color: var(--bone);
+  text-decoration: none;
+  display: inline-block;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--rust);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Cards */
+.surface {
+  background: var(--ink-panel);
+  border: 1px solid var(--ink-line);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Asterisk separator */
+.asterism {
+  font-family: 'Fraunces', serif;
+  color: var(--rust);
+  letter-spacing: 0.4em;
+  text-align: center;
+}
+
+/* Number tag — like a footnote */
+.fn-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.7em;
+  vertical-align: super;
+  color: var(--rust);
+  margin-left: 0.15em;
+  margin-right: 0.05em;
+}
+
+/* For accessibility — focus rings */
+:focus-visible {
+  outline: 1px solid var(--rust);
+  outline-offset: 4px;
+}
+
+/* Marquee for tech ribbon */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Anchor scroll offset */
+section[id] { scroll-margin-top: 100px; }
