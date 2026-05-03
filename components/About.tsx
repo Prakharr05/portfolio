@@ -8,7 +8,7 @@ const facts = [
   { k: "Studying", v: "B.Tech CSE — Manipal University Jaipur" },
   { k: "Graduating", v: "Q2 2026" },
   { k: "Interests", v: "Agentic systems · multimodal AI · clean APIs" },
-  { k: "Off-screen", v: "Reading, walking, occasional photography" },
+  { k: "Off-screen", v: "Football, Reading, walking, fitness" },
 ];
 
 export default function About() {

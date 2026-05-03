@@ -201,12 +201,12 @@ export default function Projects() {
             <p className="text-bone-dim">
               More on{" "}
               <a
-                href="https://github.com/"
+                href="https://github.com/Prakharr05"
                 className="link text-bone"
                 target="_blank"
                 rel="noreferrer"
               >
-                github.com/prakhar
+                github
               </a>
             </p>
           </div>
