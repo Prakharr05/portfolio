@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 
 const channels = [
-  { num: "i", name: "Email", value: "prakhar@example.com", href: "mailto:prakhar@example.com" },
-  { num: "ii", name: "GitHub", value: "github.com/prakhar", href: "https://github.com/" },
-  { num: "iii", name: "LinkedIn", value: "linkedin.com/in/prakhar", href: "https://linkedin.com/" },
+  { num: "i", name: "Email", value: "prakhar1162004@gmail.com", href: "mailto:prakhar1162004@gmail.com" },
+  { num: "ii", name: "GitHub", value: "github.com/Prakharr05", href: "https://github.com/Prakharr05" },
+  { num: "iii", name: "LinkedIn", value: "linkedin.com/in/prakhar-sharma-b4a53a246/", href: "https://www.linkedin.com/in/prakhar-sharma-b4a53a246/" },
   { num: "iv", name: "Twitter", value: "@prakhar", href: "https://twitter.com/" },
 ];
 
