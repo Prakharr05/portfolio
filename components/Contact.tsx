@@ -7,7 +7,7 @@ const channels = [
   { num: "i", name: "Email", value: "prakhar1162004@gmail.com", href: "mailto:prakhar1162004@gmail.com" },
   { num: "ii", name: "GitHub", value: "github.com/Prakharr05", href: "https://github.com/Prakharr05" },
   { num: "iii", name: "LinkedIn", value: "linkedin.com/in/prakhar-sharma-b4a53a246/", href: "https://www.linkedin.com/in/prakhar-sharma-b4a53a246/" },
-  { num: "iv", name: "Twitter", value: "@prakhar", href: "https://twitter.com/" },
+  //{ num: "iv", name: "Twitter", value: "@prakhar", href: "https://twitter.com/" },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
